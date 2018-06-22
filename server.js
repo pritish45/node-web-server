@@ -2,8 +2,7 @@ const express =require('express');
 const hbs=require('hbs');
 var app= express();
 const fs=require('fs');
-const port=process.env.PORT ||3000;
-
+const port =process.env.PORT||3000;
 app.set('view engine','hbs');
 hbs.registerPartials(__dirname + '/views/partials')
 app.use(express.static(__dirname + '/public'));
@@ -23,7 +22,7 @@ app.use((req,res,next)=>{
 // app.use((req,res,next)=>{
 //   res.render('maintenance.hbs')
 //
-// });
+// });adddadsa
 
 hbs.registerHelper('getCurrentYear',()=>{
    return new Date().getFullYear()
@@ -34,7 +33,7 @@ hbs.registerHelper('screamIt',(text)=>{
 })
 app.get('/',(req,res)=>{
   //res.send("<h1>Hello Express!</h1>");
-  // res.send({
+  // res.send({adddadsa
   //   name:'Pritish',
   //   likes:[
   //     'Biking' ,
@@ -53,6 +52,12 @@ app.get('/about',(req,res)=>{
     //currentYear: new Date().getFullYear()
   });
 });
+app.get('/project',(req,res)=>{
+  res.render("project.hbs",{
+    pageTitle:'Project page',
+    //currentYear: new Date().getFullYear()
+  });
+});
 app.get('/bad',(req,res)=>{
   res.send({
     errorMessage:'Unable to Handle'
@@ -61,5 +66,5 @@ app.get('/bad',(req,res)=>{
 
 //listen(port name)
 app.listen(port,()=>{
-  console.log(`Server is up on port ${port}`)
+  console.log(`Server is up on port ${port}`);
 });
